@@ -6,42 +6,38 @@
  * @flow
  */
 
-import React from 'react';
-import LoginScreen from './app/containers/Login';
-import HomeScreen from './app/containers/RequestScreen';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import LoginPage from './app/containers/LoginPage';
+import HomePage from './app/containers/HomePage';
+import RequestPage from './app/containers/RequestPage';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
 const routeConfigs = {
-  Login: LoginScreen,
+  Login: {
+    screen: LoginPage,
+    navigationOptions: {
+      title: 'Login Page',
+    },
+  },
   Home: {
-    screen: HomeScreen,
+    screen: HomePage,
     navigationOptions: {
       title: 'Home',
       headerLeft: null,
-    }
+    },
   },
-}
+  Request: {
+    screen: RequestPage,
+    navigationOptions: {
+      title: 'Emergency Response Panel',
+    },
+  },
+};
 
 const StackNavigatorConfig = {
   initialRouteName: 'Login',
-}
+};
 
 const AppNavigator = createStackNavigator(routeConfigs, StackNavigatorConfig);
 

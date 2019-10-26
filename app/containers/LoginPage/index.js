@@ -1,19 +1,20 @@
 import React, { Component } from "react";
-
-import styles from "./style";
+import { Image } from 'react-native';
+import styles from "./styles";
 import {Keyboard, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView} from 'react-native';
 import { Button } from 'react-native-elements';
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = props => {
   const _handleLoginPress = () => {
-    navigation.navigate('Home');
+    props.navigation.navigate('Home');
   };
   return (
     <KeyboardAvoidingView style={styles.containerView} behavior="padding">
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.loginScreenContainer}>
+          <Image source={require('../../assets/img/logo.png')} style={{width: 100, height: 100, resizeMode: 'contain', alignSelf: 'center', marginTop: 100}} />
+          <Text style={styles.logoText}>Emergency Situations Control</Text>
           <View style={styles.loginFormView}>
-            <Text style={styles.logoText}>Instamobile</Text>
             <TextInput
               placeholder="Username"
               placeholderColor="#c4c3cb"
@@ -25,11 +26,13 @@ const LoginScreen = ({navigation}) => {
               style={styles.loginFormTextInput}
               secureTextEntry={true}
             />
-            <Button
-              buttonStyle={styles.loginButton}
-              title="Login"
-              onPress={_handleLoginPress}
-            />
+            <View style={styles.btnWrapper}>
+              <Button
+                buttonStyle={styles.loginButton}
+                title="Login"
+                onPress={_handleLoginPress}
+              />
+            </View>
           </View>
         </View>
       </TouchableWithoutFeedback>
