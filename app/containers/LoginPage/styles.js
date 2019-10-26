@@ -31,7 +31,6 @@ export default StyleSheet.create({
     paddingLeft: 10,
     marginTop: 5,
     marginBottom: 5,
-
   },
   loginButton: {
     backgroundColor: '#3897f1',

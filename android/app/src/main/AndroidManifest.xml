@@ -12,12 +12,14 @@
       android:label="@string/app_name"
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
+      android:theme="@android:style/Theme.Black.NoTitleBar"
       android:allowBackup="false"
       android:theme="@style/AppTheme"
       android:usesCleartextTraffic="true">
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
+        android:theme="@android:style/Theme.Black.NoTitleBar"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
         android:windowSoftInputMode="adjustResize">
         <intent-filter>
@@ -26,7 +28,7 @@
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-      <meta-data android:name="com.google.android.geo.API_KEY" 
+      <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAoBj0E04Ppe8AZOX_iojEXYwn9pBkMQVo"/>
     </application>
 

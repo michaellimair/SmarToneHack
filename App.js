@@ -12,7 +12,6 @@ import RequestPage from './app/containers/RequestPage';
 
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-
 const routeConfigs = {
   Login: {
     screen: LoginPage,
@@ -37,6 +36,10 @@ const routeConfigs = {
 
 const StackNavigatorConfig = {
   initialRouteName: 'Login',
+  headerMode: 'none',
+  navigationOptions: {
+        headerVisible: false,
+  },
 };
 
 const AppNavigator = createStackNavigator(routeConfigs, StackNavigatorConfig);

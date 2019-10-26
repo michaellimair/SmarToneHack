@@ -9,7 +9,19 @@ import MapViewDirections from 'react-native-maps-directions';
 import Feather from 'react-native-vector-icons/FontAwesome5';
 import {GOOGLE_MAPS_APIKEY} from '../../utils/constants';
 import {sampleSize, cloneDeep} from 'lodash';
+import { BackHandler } from 'react-native';
 
+const componentDidMount = () =>{
+    BackHandler.addEventListener('hardwareBackPress', this.onBackButtonPressed);
+}
+
+const componentWillUnmount = () => {
+    BackHandler.removeEventListener('hardwareBackPress', this.onBackButtonPressed);
+}
+
+const onBackButtonPressed = () =>{
+    return true;
+}
 const { width, height } = Dimensions.get('window');
 
 export const deg2rad = (deg) => deg * (Math.PI/180);

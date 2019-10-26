@@ -3,9 +3,12 @@ import { Image } from 'react-native';
 import styles from "./styles";
 import {Keyboard, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView} from 'react-native';
 import { Button } from 'react-native-elements';
-
 const LoginScreen = props => {
+  const [value, onChangeText] = React.useState('')
   const _handleLoginPress = () => {
+    props.navigation.setParams({
+      hideHeader: true,
+      });
     props.navigation.navigate('Home');
   };
   return (
@@ -18,6 +21,7 @@ const LoginScreen = props => {
             <TextInput
               placeholder="Username"
               placeholderColor="#c4c3cb"
+
               style={styles.loginFormTextInput}
             />
             <TextInput

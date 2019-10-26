@@ -10,7 +10,6 @@ const MainPageButton = ({title, backgroundColor, fontSize, onPress}) => (
     </View>
   </TouchableNativeFeedback>
 );
-
 const MainPage = props => {
   //const height, width = Dimensions.get('windows')
   const user_name = 'Michael Lim';
@@ -27,7 +26,7 @@ const MainPage = props => {
         Alert.alert(
           'New emergency request!',
           `Patient Name: ${patientName}\nAge: ${patientAge}\nLocation: ${location}`,
-          [{text: 'OK', onPress: () => props.navigation.navigate('Request')}],
+          [{text: 'OK', onPress: () => props.navigation.navigate('Request',{ header: null })}],
         ),
       3000,
     );
@@ -35,7 +34,7 @@ const MainPage = props => {
   }, []);
 
   return (
-  <View style = {{flex:1, backgroundColor: 'lightblue'}}>
+  <View style = {{flex:1, backgroundColor: 'black'}}>
     <View style = {{ flexDirection: 'row',textAlign: 'center',justifyContent: 'center', alignItems: 'center', backgroundColor: 'yellow'}}>
       <Image
         source = {require('../../assets/img/logo.png')}
@@ -61,30 +60,31 @@ const MainPage = props => {
         </View>
       </View>
       */
-    }
-    <MainPageButton
+
+    /*<MainPageButton
       title="Emergency Request"
       backgroundColor="#ff0000"
       fontSize={40}
       onPress={() => props.navigation.navigate('Request')}
-    />
+    />*/
+    }
     <View style = {{flex:1, flexDirection:'row'}}>
 
       <View style = {{flex:1}}>
 
       </View>
       <View style = {{flex:3,flexDirection: 'column'}}>
-          <MainPageButton title="Details" backgroundColor="lightgreen" />
+          <MainPageButton  title="Details" backgroundColor="#00AA00" />
         {/*<Separator />*/}
-          <MainPageButton title="Past Records" backgroundColor="grey" />
-          <MainPageButton title="Exit/Logout" backgroundColor="orange" onPress={() => props.navigation.navigate('Login')}/>
+          <MainPageButton title="Past Records" backgroundColor="orange" />
+          <MainPageButton title="Exit/Logout" backgroundColor="#CF0000" onPress={() => props.navigation.navigate('Login')}/>
       </View>
         <View style = {{flex:1,flexDirection: 'row', width: 100}}>
       </View>
     </View>
     <View style = {{flex:0.2  , flexDirection:'row',justifyContent: 'space-between'}}>
-        <MainPageButton title="Help" />
-        <MainPageButton title="Contact Us" onPress={() => Linking.openURL('mailto:support@esc.com.hk')} />
+        <MainPageButton backgroundColor = 'white' title="Help" />
+        <MainPageButton backgroundColor = 'white' title="Contact Us" onPress={() => Linking.openURL('mailto:support@esc.com.hk')} />
     </View>
   </View>
   );
