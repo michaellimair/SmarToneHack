@@ -8,6 +8,7 @@
 
 import React from 'react';
 import Root from './app/containers/Root';
+import MainPage from './app/containers/MainPage'
 import {
   SafeAreaView,
   StyleSheet,
@@ -26,7 +27,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const App = () => {
-  return <Root />;
+  return <MainPage />;
 };
 
 // const App: () => React$Node = () => {
