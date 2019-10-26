@@ -1,12 +1,10 @@
 import React from 'react';
 import {Text,View, Button, Dimensions, Image, TouchableNativeFeedback, Alert} from 'react-native';
 import MapView from 'react-native-maps';
-import {styles} from './styles';
 
 function Separator() {
   return <View style={styles.separator} />;
 }
-
 const MainPageButton = ({title,backgroundColor,fontSize}) => (
 
   <TouchableNativeFeedback
@@ -19,6 +17,7 @@ const MainPageButton = ({title,backgroundColor,fontSize}) => (
 
   </TouchableNativeFeedback>
 )
+
 
 const MainPage = () => {
   //const height, width = Dimensions.get('windows')
