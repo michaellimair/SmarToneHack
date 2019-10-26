@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import MapView from 'react-native-maps';
 import {styles} from './styles';
 import {PermissionsAndroid} from 'react-native';
+import useInterval from '../../utils/useInterval';
 import Geolocation from 'react-native-geolocation-service';
 
 const requestLocationPermission = async () => {
@@ -9,16 +10,15 @@ const requestLocationPermission = async () => {
     const granted = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       {
-        'title': 'Location Permission',
-        'message': 'Location Permission' +
-                   'so you can use GPS location.'
+        title: 'Location Permission',
+        message: 'Location Permission' + 'so you can use GPS location.',
       }
     );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log('GPS permission granted');
+      console.log('GPS permission has been granted.');
       return true;
     } else {
-      console.log('GPS location denied');
+      console.log('GPS location was denied');
       return false;
     }
   } catch (e) {
@@ -26,11 +26,19 @@ const requestLocationPermission = async () => {
   }
 }
 
-const Root = () => {
+const RequestScreen = () => {
+  const [locationPermissionGranted, setLocationPermission] = useState(false);
+  const [userLocation, setUserLocation] = useState({
+    latitude: 0,
+    longitude: 0,
+  });
+  const mapReferenceContainer = useRef(null);
+
   async function requestCurrentLocation() {
     Geolocation.getCurrentPosition(
       position => {
         console.log("position is", position.coords);
+        setUserLocation(position.coords);
         return position.coords;
       },
       error => {
@@ -41,12 +49,7 @@ const Root = () => {
     );
   }
 
-  const [locationPermissionGranted, setLocationPermission] = useState(false);
-  const [userLocation, setUserLocation] = useState({
-    latitude: 0,
-    longitude: 0,
-  });
-  const mapReferenceContainer = useRef(null);
+  useInterval(requestCurrentLocation, 5000);
 
   const _handleUserLocationChange = c => {
     // userLocation = c;
@@ -81,4 +84,4 @@ const Root = () => {
   );
 };
 
-export default Root;
+export default RequestScreen;
