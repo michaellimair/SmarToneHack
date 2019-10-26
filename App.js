@@ -8,7 +8,7 @@
 
 import React from 'react';
 import LoginScreen from './app/containers/Login';
-import HomeScreen from './app/containers/Root';
+import HomeScreen from './app/containers/RequestScreen';
 import {
   SafeAreaView,
   StyleSheet,

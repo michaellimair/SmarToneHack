@@ -34,7 +34,7 @@ const LoginScreen = ({navigation}) => {
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
-  )
+  );
 };
 
 export default LoginScreen;
