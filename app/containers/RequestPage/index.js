@@ -37,7 +37,7 @@ const TrafficLightMarker = ({markerWidth, trafficLightPath, coordinate, state, p
     <Marker
       coordinate={coordinate}
       anchor={{x: 0.5, y: 0.5}}
-      tracksViewChanges={true}
+      tracksViewChanges={false}
       style={{ zIndex: 9}}
     >
       <View
