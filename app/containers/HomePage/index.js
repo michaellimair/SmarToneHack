@@ -77,7 +77,7 @@ const MainPage = props => {
           <MainPageButton  title="Details" backgroundColor="#00AA00" />
         {/*<Separator />*/}
           <MainPageButton title="Past Records" backgroundColor="orange" />
-          <MainPageButton title="Exit/Logout" backgroundColor="#CF0000" onPress={() => props.navigation.navigate('Login')}/>
+          <MainPageButton title="Exit/Logout" backgroundColor="#f3172d" onPress={() => props.navigation.navigate('Login')}/>
       </View>
         <View style = {{flex:1,flexDirection: 'row', width: 100}}>
       </View>
