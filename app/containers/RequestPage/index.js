@@ -10,6 +10,8 @@ import Feather from 'react-native-vector-icons/FontAwesome5';
 import {GOOGLE_MAPS_APIKEY} from '../../utils/constants';
 import {sampleSize, cloneDeep} from 'lodash';
 
+let stopCounting = false;
+
 const { width, height } = Dimensions.get('window');
 
 export const deg2rad = (deg) => deg * (Math.PI/180);
@@ -157,8 +159,6 @@ const RequestScreen = (props) => {
 
   useInterval(requestCurrentLocation, 5000);
 
-  let stopCounting = false;
-
   let incrementJourney = useInterval(() => {
     if (pointNumber + 2 < journeyPath.length - 1) {
       stopCounting = false;
@@ -210,9 +210,9 @@ const RequestScreen = (props) => {
       ) {
         state = 'go';
       }
-      if (light.index < pointNumber) {
-        state = 'go';
-      }
+      // if (light.index < pointNumber) {
+      //   state = 'go';
+      // }
       return {
         ...light,
         state: state,
